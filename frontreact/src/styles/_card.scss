@@ -4,12 +4,12 @@
   justify-content: space-between;
   align-items: center;
   width: 18rem;
-  background-color: $isis3710-white;
-  color: $isis3710-black;
+  background-color: white;
+  color: black;
   padding: 0.5rem;
   border-radius: 1rem;
   cursor: pointer;
-  border: 1px solid $isis3710-grey-10;
+  border: 1px solid grey;
 
   &.inactive {
     filter: brightness(0.8) saturate(0) contrast(1.5) blur(1px);

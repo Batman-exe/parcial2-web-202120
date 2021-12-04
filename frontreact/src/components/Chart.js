@@ -26,6 +26,32 @@ export const Chart = ({ width = 600, height = 600, data }) => {
       .padding(0.1);
 
     // Continue with implementation. Don't forget the tooltip
+    var tooltip = d3.select("body").append("div").attr("class", "toolTip").attr("position", "absolute");
+
+    g.selectAll(".rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("x", function(d) { return x(d.name); })
+        .attr("y", function(d) { return y(d.stock); })
+        .attr("width", x.bandwidth())
+        .attr("height", function(d) { return iheight - y(d.stock); })
+        .attr("fill", "blue")/*.on("mouseover", function (d) {
+          tooltip
+              .style("visibility", "visble")
+              .text((d.name) + "<br>" + (d.stock))
+        })*/
+        .on("mousemove", function(e, d){
+          console.log(`tooltip ${d.name} | ${d.stock}`);
+          tooltip
+              .style("left", e.pageX - 25 + "px")
+              .style("top", e.pageY - 25 + "px")
+              .style("display", "inline-block")
+              .text((d.name) + " " + (d.stock));
+        });
+        //.on("mouseout", function(d){ tooltip.style("display", "none");});
+
+    g.append("g").classed("y--axis", true).call(d3.axisLeft(y));
   });
 
   return (

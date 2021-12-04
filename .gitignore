@@ -2,3 +2,4 @@ node_modules
 frontreact/node_modules
 frontreact/build
 .DS_Store
+.idea

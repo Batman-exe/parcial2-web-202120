@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/_card.scss';
 
 /**
  * Using react component based on function
@@ -7,8 +8,9 @@ import React from 'react';
  */
 export const Card = (props) => {
   const { name, picture, price, isActive } = props;
+  let state = isActive == 'true' ? 'card' : 'card inactive';
   return (
-    <div>
+    <div className={state}>
       <div className='card-header'>
         <p className='card-title'>{name}</p>
         <span className='material-icons card-favorite'>favorite_border</span>
